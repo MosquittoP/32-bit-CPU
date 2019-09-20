@@ -1,0 +1,326 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+entity REGISTER_MODULE is  --레지스터 모듈 메인 port정의
+		port (Clock: in std_logic;
+              Register1: in std_logic_vector (4 downto 0);
+              Register2: in std_logic_vector (4 downto 0);
+              RegisterW: in std_logic_vector (4 downto 0);
+           
+              Data_Reg: in std_logic_vector (31 downto 0);
+              RegWrite: in std_logic;
+              Data1: out std_logic_vector (31 downto 0);
+              Data2: out std_logic_vector (31 downto 0));
+end REGISTER_MODULE;
+
+
+architecture struct_REGISTER_MODULE of REGISTER_MODULE is  --32비트 레지스터 공간 확보를 위한 레지스터 정의 
+signal Reg_0: std_logic_vector (31 downto 0);
+signal Reg_1: std_logic_vector (31 downto 0);
+signal Reg_2: std_logic_vector (31 downto 0);
+signal Reg_3: std_logic_vector (31 downto 0);
+signal Reg_4: std_logic_vector (31 downto 0);
+signal Reg_5: std_logic_vector (31 downto 0);
+signal Reg_6: std_logic_vector (31 downto 0);
+signal Reg_7: std_logic_vector (31 downto 0);
+signal Reg_8: std_logic_vector (31 downto 0);
+signal Reg_9: std_logic_vector (31 downto 0);
+signal Reg_10: std_logic_vector (31 downto 0);
+signal Reg_11: std_logic_vector (31 downto 0);
+signal Reg_12: std_logic_vector (31 downto 0);
+signal Reg_13: std_logic_vector (31 downto 0);
+signal Reg_14: std_logic_vector (31 downto 0);
+signal Reg_15: std_logic_vector (31 downto 0);
+signal Reg_16: std_logic_vector (31 downto 0);
+signal Reg_17: std_logic_vector (31 downto 0);
+signal Reg_18: std_logic_vector (31 downto 0);
+signal Reg_19: std_logic_vector (31 downto 0);
+signal Reg_20: std_logic_vector (31 downto 0);
+signal Reg_21: std_logic_vector (31 downto 0);
+signal Reg_22: std_logic_vector (31 downto 0);
+signal Reg_23: std_logic_vector (31 downto 0);
+signal Reg_24: std_logic_vector (31 downto 0);
+signal Reg_25: std_logic_vector (31 downto 0);
+signal Reg_26: std_logic_vector (31 downto 0);
+signal Reg_27: std_logic_vector (31 downto 0);
+signal Reg_28: std_logic_vector (31 downto 0);
+signal Reg_29: std_logic_vector (31 downto 0);
+signal Reg_30: std_logic_vector (31 downto 0);
+signal Reg_31: std_logic_vector (31 downto 0);
+
+begin  --Register1, Register2, write Register정의
+	
+	process(Clock)
+
+	begin
+	if (Clock'event and Clock ='1') then 
+		case Register1 is  --Register1세팅
+		when "00000" =>			Data1 <= Reg_0;
+		when "00001" =>			Data1 <= Reg_1;
+		when "00010" =>			Data1 <= Reg_2;
+		when "00011" =>			Data1 <= Reg_3;
+		when "00100" =>			Data1 <= Reg_4;
+		when "00101" =>			Data1 <= Reg_5;
+		when "00110" =>			Data1 <= Reg_6;			
+		when "00111" =>			Data1 <= Reg_7;			
+		when "01000" =>			Data1 <= Reg_8;			
+		when "01001" =>			Data1 <= Reg_9;			
+		when "01010" =>			Data1 <= Reg_10;			
+		when "01011" =>			Data1 <= Reg_11;			
+		when "01100" =>			Data1 <= Reg_12;			
+		when "01101" =>			Data1 <= Reg_13;			
+		when "01110" =>			Data1 <= Reg_14;			
+		when "01111" =>			Data1 <= Reg_15;			
+		when "10000" =>			Data1 <= Reg_16;
+		when "10001" =>			Data1 <= Reg_17;
+		when "10010" =>			Data1 <= Reg_18;
+		when "10011" =>			Data1 <= Reg_19;
+		when "10100" =>			Data1 <= Reg_20;
+		when "10101" =>			Data1 <= Reg_21;
+		when "10110" =>			Data1 <= Reg_22;			
+		when "10111" =>			Data1 <= Reg_23;			
+		when "11000" =>			Data1 <= Reg_24;			
+		when "11001" =>			Data1 <= Reg_25;			
+		when "11010" =>			Data1 <= Reg_26;			
+		when "11011" =>			Data1 <= Reg_27;			
+		when "11100" =>			Data1 <= Reg_28;			
+		when "11101" =>			Data1 <= Reg_29;			
+		when "11110" =>			Data1 <= Reg_30;			
+		when "11111" =>			Data1 <= Reg_31;		
+		when others  =>			Data1 <= "00000000000000000000000000000000";
+		end case;
+		
+		case Register2 is  --Register2세팅
+		when "00000" =>	 		Data2 <= Reg_0;
+		when "00001" =>			Data2 <= Reg_1;
+		when "00010" =>			Data2 <= Reg_2;
+		when "00011" =>			Data2 <= Reg_3;
+		when "00100" =>			Data2 <= Reg_4;
+		when "00101" =>			Data2 <= Reg_5;
+		when "00110" =>			Data2 <= Reg_6;			
+		when "00111" =>			Data2 <= Reg_7;			
+		when "01000" =>			Data2 <= Reg_8;			
+		when "01001" =>			Data2 <= Reg_9;			
+		when "01010" =>			Data2 <= Reg_10;			
+		when "01011" =>			Data2 <= Reg_11;			
+		when "01100" =>			Data2 <= Reg_12;			
+		when "01101" =>			Data2 <= Reg_13;			
+		when "01110" =>			Data2 <= Reg_14;			
+		when "01111" =>			Data2 <= Reg_15;			
+		when "10000" =>			Data2 <= Reg_16;
+		when "10001" =>			Data2 <= Reg_17;
+		when "10010" =>			Data2 <= Reg_18;
+		when "10011" =>			Data2 <= Reg_19;
+		when "10100" =>			Data2 <= Reg_20;
+		when "10101" =>			Data2 <= Reg_21;
+		when "10110" =>			Data2 <= Reg_22;			
+		when "10111" =>			Data2 <= Reg_23;			
+		when "11000" =>			Data2 <= Reg_24;			
+		when "11001" =>			Data2 <= Reg_25;			
+		when "11010" =>			Data2 <= Reg_26;			
+		when "11011" =>			Data2 <= Reg_27;			
+		when "11100" =>			Data2 <= Reg_28;			
+		when "11101" =>			Data2 <= Reg_29;			
+		when "11110" =>			Data2 <= Reg_30;			
+		when "11111" =>			Data2 <= Reg_31;		
+		when others  =>			Data2 <= "00000000000000000000000000000000";
+		end case;
+		
+		if RegWrite='1' then
+		case RegisterW is  --write Register세팅
+		when "00000" =>			Reg_0 <= Data_Reg;
+		when "00001" =>			Reg_1 <= Data_Reg;
+		when "00010" =>			Reg_2 <= Data_Reg;
+		when "00011" =>			Reg_3 <= Data_Reg;
+		when "00100" =>			Reg_4 <= Data_Reg;
+		when "00101" =>			Reg_5 <= Data_Reg;
+		when "00110" =>			Reg_6 <= Data_Reg;			
+		when "00111" =>			Reg_7 <= Data_Reg;			
+		when "01000" =>			Reg_8 <= Data_Reg;			
+		when "01001" =>			Reg_9 <= Data_Reg;			
+		when "01010" =>			Reg_10 <= Data_Reg;			
+		when "01011" =>			Reg_11 <= Data_Reg;			
+		when "01100" =>			Reg_12 <= Data_Reg;			
+		when "01101" =>			Reg_13 <= Data_Reg;			
+		when "01110" =>			Reg_14 <= Data_Reg;			
+		when "01111" =>			Reg_15 <= Data_Reg;			
+		when "10000" =>			Reg_16 <= Data_Reg;
+		when "10001" =>			Reg_17 <= Data_Reg;
+		when "10010" =>			Reg_18 <= Data_Reg;
+		when "10011" =>			Reg_19 <= Data_Reg;
+		when "10100" =>			Reg_20 <= Data_Reg;
+		when "10101" =>			Reg_21 <= Data_Reg;
+		when "10110" =>			Reg_22 <= Data_Reg;			
+		when "10111" =>			Reg_23 <= Data_Reg;			
+		when "11000" =>			Reg_24 <= Data_Reg;			
+		when "11001" =>			Reg_25 <= Data_Reg;			
+		when "11010" =>			Reg_26 <= Data_Reg;			
+		when "11011" =>			Reg_27 <= Data_Reg;			
+		when "11100" =>			Reg_28 <= Data_Reg;			
+		when "11101" =>			Reg_29 <= Data_Reg;			
+		when "11110" =>			Reg_30 <= Data_Reg;			
+		when "11111" =>			Reg_31 <= Data_Reg;		
+		end case;
+		end if;
+	end if;
+	end process;
+
+end struct_REGISTER_MODULE;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+entity IR_MODULE is  --IR port 정의
+		port (Clock: in std_logic;
+              Data_in: in std_logic_vector (31 downto 0);
+              IRWrite: in std_logic;
+              Ctrl_out: out std_logic_vector (5 downto 0);
+              Register1: out std_logic_vector (4 downto 0);
+              Register2: out std_logic_vector (4 downto 0);
+              Register3: out std_logic_vector (4 downto 0);
+              RegisterW: out std_logic_vector (15 downto 0));
+end IR_MODULE;
+
+architecture struct_IR_MODULE of IR_MODULE is  --IR - 데이터 분류 및 분류된 데이터 저장
+
+begin
+	process(Clock)
+	begin
+	
+		if (IRWrite='1') then
+			Ctrl_out <= Data_in(31 downto 26);
+			Register1 <= Data_in(25 downto 21);
+			Register2 <= Data_in(20 downto 16);
+			Register3 <= Data_in(15 downto 11);
+			RegisterW <= Data_in(15 downto 0);
+		
+		end if;
+	end process;
+
+end struct_IR_MODULE;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+entity MDR_MODULE is  --MDR port 정의
+		port (Clock: in std_logic;
+              Data_in: in std_logic_vector (31 downto 0);
+              Data_out: out std_logic_vector (31 downto 0));
+end MDR_MODULE;
+
+architecture struct_MDR_MODULE of MDR_MODULE is  --MDR 데이터 출력 모듈
+
+begin
+	process(Clock)
+	begin
+	
+	Data_out <= Data_in;  --데이터 출력
+	
+	end process;
+end struct_MDR_MODULE;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+entity Sign_extend is  --Sign-extend port 정의
+		port (Clock: in std_logic;
+              Data_in: in std_logic_vector (15 downto 0);
+              Data_out: out std_logic_vector (31 downto 0));
+end Sign_extend;
+
+architecture Sign_extend_MODULE of Sign_extend is  --Sign-extend 동작 모듈
+
+begin  --받은 16데이터를 통한 출력 관련 처리
+	process(Clock)
+	begin
+	
+		Data_out(15 downto 0)<=Data_in;
+		case Data_in(15)is  --1일 경우 동작 신호
+		when '1'    => Data_out(31 downto 16)<="1111111111111111";  --1외의 값일 경우 신호 X
+		when others => Data_out(31 downto 16)<="0000000000000000";
+		end case;
+
+	end process;
+
+end Sign_extend_MODULE;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+entity Shift_left2 is  --Shift_left2 port 정의
+		port (Clock: in std_logic;
+              Data_in: in std_logic_vector (31 downto 0);
+              Data_out: out std_logic_vector (31 downto 0));
+end Shift_left2;
+
+architecture Shift_left2_MODULE of Shift_left2 is  --Shift_left2 port 동작 모듈
+
+begin
+	process(Clock) --쉬프트를 이용한 데이터 출력
+	begin
+	
+		Data_out(31 downto 2)<=Data_in(29 downto 0);
+		Data_out(1 downto 0)<="00";
+	
+	end process;
+end Shift_left2_MODULE;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+entity ALU_CTRL is  --ALU_CTRL port 정의
+		port (Clock: in std_logic;
+              ALUOP    : in std_logic_vector( 1 downto 0);
+              Data_in  : in std_logic_vector (15 downto 0);
+              Data_out : out std_logic_vector (2 downto 0));
+end ALU_CTRL;
+
+architecture ALU_CTRL_MODULE of ALU_CTRL is  --ALU_CTRL 동작 모듈
+
+begin
+	process(Clock)
+	begin
+	
+	case ALUOP is  --operation 값에 따른 동작 분류
+	when "00" => Data_out <="010";
+	when "01" => Data_out <="110";
+	when "10" =>
+	  case Data_in(5 downto 0) is  --case를 사용한 데이터 출력
+	  when "100000"=>Data_out <="010";
+	  when "100010"=>Data_out <="110";
+	  when "100100"=>Data_out <="000";
+	  when "100101"=>Data_out <="001";
+	  when "101010"=>Data_out <="111";
+	  when others => 
+	  end case; 
+	  when others => 
+	end case;
+	
+   end process;
+end ALU_CTRL_MODULE;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+
+entity PC_MODULE is  --Program Counter port 정의
+		port (Clock: in std_logic;
+              WriteSig :in std_logic;
+              Data_in: in std_logic_vector (31 downto 0);
+              Data_out: out std_logic_vector (31 downto 0));
+end PC_MODULE;
+
+architecture struct_PC_MODULE of PC_MODULE is  --Program Counter 동작 모듈
+
+begin
+	process(Clock)
+	begin  --클럭 및 Sign_extend값에 따른 데이터 출력
+	if (Clock'event and Clock ='1'and WriteSig = '1' )then 
+	Data_out <= Data_in;
+	end if;
+	end process;
+end struct_PC_MODULE;
+
